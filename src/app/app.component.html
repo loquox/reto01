@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-form-new-iten (newItemEvent)="addNewCity($event)" [label]="'City'" [className]="'btn-info'" ></app-form-new-iten>
+    </div>
+
+    <div class="col-md-6 my-3">
+      <input type="text" class="form-control" placeholder="Filter..." [(ngModel)]="criteria" >
+
+    </div>
+
+
+    <div class="col-md-8">
+      <ul >
+        <app-cities (cityClickedEvent)="onCityClicked($event)" *ngFor="let ciudad of (ciudades| filter:criteria )" [seleccion]="seleccion" [ciudad]="ciudad" ></app-cities>
+      </ul>
+   
+
+    </div>
+    <!-- <p>{{'5/23/23, 9:03 AM' | date:'full'}}</p>
+    <p>Mi cumpleaños es : {{'5/23/23, 9:03 AM' | date:'full'| uppercase}}</p> -->
+
+    <p>{{'999' | currency:'EUR'}}</p>
+
+    <div class="col-md-4">
+      <div *ngIf="seleccion">
+        <p  >Your city is: {{seleccion}} </p>
+        <app-button (click)="onClear()"[color]="'blue'" [label]="'Clear your selection'" >
+        </app-button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
